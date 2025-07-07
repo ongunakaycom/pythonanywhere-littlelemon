@@ -1,35 +1,125 @@
-# LittleLemon (Meta Backend Developer Capstone)
-![Coursera](https://img.shields.io/badge/Coursera-0747a6?style=flat&logo=coursera&logoColor=white)
-![Meta](https://img.shields.io/badge/Meta-0668E1?style=flat&logo=meta&logoColor=white)
-![Django](https://img.shields.io/badge/Django-092e20?style=flat&logo=django&logoColor=white)  
-Capstone project for the [Meta Backend Developer Professional Certificate](https://www.coursera.org/professional-certificates/meta-back-end-developer?) on [Coursera](https://www.coursera.org/).  
-## Running
-Please create a `.env` file like this, or the project won't run.  
-```bash
+# 🍽️ Little Lemon Booking System
+
+![Django](https://img.shields.io/badge/Django-092e20?style=flat&logo=django&logoColor=white)
+![PythonAnywhere](https://img.shields.io/badge/Deployed%20on-PythonAnywhere-green?style=flat&logo=python)
+
+A Django-based restaurant booking and menu management system, deployed on [PythonAnywhere](https://ongunakay.pythonanywhere.com).
+
+---
+
+## 🌐 Live Site
+
+🔗 [https://ongunakay.pythonanywhere.com](https://ongunakay.pythonanywhere.com)
+
+---
+
+## 📦 Tech Stack
+
+- Python
+- Django 4.2
+- Django REST Framework
+- MySQL (via `mysqlclient`)
+- Gunicorn
+- Pipenv
+- PythonAnywhere (Hosting)
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the repo
+
+```
+git clone https://github.com/your-username/pythonanywhere-littlelemon.git
+cd pythonanywhere-littlelemon
+```
+
+```
+Add a .env file in the root directory
+```
+
+```
 SECRET_KEY="your-secret-key"
-DB_NAME="db"
+DB_NAME="your-db-name"
 DB_HOST="127.0.0.1"
 DB_PORT="3306"
-DB_USER="root"
-DB_PASSWORD=""
+DB_USER="your-db-user"
+DB_PASSWORD="your-db-password"
 ```
-Then, install the dependencies and apply migrations:  
-```bash
+
+
+```
+Install dependencies and run migrations
+```
+```
 pipenv install
-pipenv run python3 manage.py makemigrations
-pipenv run python3 manage.py migrate
+pipenv run python manage.py makemigrations
+pipenv run python manage.py migrate
 ```
-Finally, run the server:
-```bash
-pipenv run python3 manage.py runserver
+## Run the development server
 ```
-## Notes
-Only authenticated users can book.  
-Only superusers can see all the bookings or add menu items.
-Test the following endpoints:
-```bash
-restaurant <- index, serving html contents
-restaurant/menu <- get/post menu items through insomnia
-restaurant/book <- get/post books through insomnia
+pipenv run python manage.py runserver
 ```
-I used `authtoken` for authentication, see the `authn/urls.py` file to check the endpoints.  
+
+## 🔐 Authentication
+Token-based authentication is used (via DRF authtoken).
+See routes in authn/urls.py.
+
+
+## 🧪 API Endpoints
+
+| Endpoint            | Description         | Auth Required |
+| ------------------- | ------------------- | ------------- |
+| `/restaurant/`      | Homepage (HTML)     | ❌             |
+| `/restaurant/menu/` | GET/POST Menu Items | ✅ Superuser   |
+| `/restaurant/book/` | GET/POST Bookings   | ✅ User        |
+
+
+## 🧑‍💼 Permissions
+- Unauthenticated users can access the homepage.
+- Authenticated users can book tables.
+- Superusers can manage menu items and view all bookings.
+
+
+## 🚀 Deployment
+App is deployed using Gunicorn on PythonAnywhere:
+🔗 ongunakay.pythonanywhere.com
+
+To redeploy after code updates:
+
+Push changes to GitHub.
+
+Pull updates in your PythonAnywhere console.
+
+Restart the web app from the PythonAnywhere dashboard.
+
+## 🗂️ Folder Structure
+```
+/
+│
+├── authn/                # Custom auth views
+├── restaurant/           # Menu & booking logic
+├── templates/            # HTML templates
+├── static/               # Static files
+├── manage.py             # Django manager
+├── Pipfile / Pipfile.lock
+├── .env                  # Environment variables (not committed)
+├── requirements.txt
+└── README.md
+```
+## 👋 About Me
+
+Ongun Akay, a Senior Full-Stack Developer with expertise across various technologies.
+
+👀 I specialize in full-stack development with extensive experience in frontend and backend technologies.
+🌱 Currently, I'm sharpening my skills in advanced concepts of web development.
+💞️ I’m always open to exciting collaborations and projects that challenge my abilities.
+📫 You can reach me at info@ongunakay.com.
+
+🌐 Website: [ongunakay.com](https://ongunakay.com)<br>
+💼 LinkedIn: [linkedin.com/in/ongunakay](https://linkedin.com/in/ongunakay)<br>
+🧑‍💻 GitHub: [github.com/ongunakaycom](https://github.com/ongunakaycom)<br>
+📬 Email: [info@ongunakay.com](mailto:info@ongunakay.com)
+
+## 📝 License
+This is a personal project built using Django for learning and experimentation.
