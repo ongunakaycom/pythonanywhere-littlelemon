@@ -15,7 +15,7 @@ A Django-based restaurant booking and menu management system, deployed on [Pytho
 
 ## 📦 Tech Stack
 
-- Python
+- Python 3
 - Django 4.2
 - Django REST Framework
 - MySQL (via `mysqlclient`)
@@ -27,17 +27,14 @@ A Django-based restaurant booking and menu management system, deployed on [Pytho
 
 ## ⚙️ Setup Instructions
 
-### 1. Clone the repo
+### 1. Clone the repository
 
 ```
 git clone https://github.com/ongunakaycom/pythonanywhere-littlelemon.git
 cd pythonanywhere-littlelemon
 ```
 
-```
-Add a .env file in the root directory
-```
-
+## 2. Create a .env file in the root directory
 ```
 SECRET_KEY="your-secret-key"
 DB_NAME="your-db-name"
@@ -47,79 +44,72 @@ DB_USER="your-db-user"
 DB_PASSWORD="your-db-password"
 ```
 
-
-```
-Install dependencies and run migrations
-```
+#3. Install dependencies and run migrations
 ```
 pipenv install
 pipenv run python manage.py makemigrations
 pipenv run python manage.py migrate
 ```
-## Run the development server
+
+# 4. Run the development server
 ```
 pipenv run python manage.py runserver
 ```
 
-## 🔐 Authentication
-Token-based authentication is used (via DRF authtoken).
-See routes in authn/urls.py.
+# 🔐 Authentication
+Token-based authentication is used via Django REST Framework's authtoken.
 
+See route definitions in authn/urls.py.
 
-## 🧪 API Endpoints
+Obtain tokens via the login endpoint.
 
-| Endpoint            | Description         | Auth Required |
-| ------------------- | ------------------- | ------------- |
-| `/restaurant/`      | Homepage (HTML)     | ❌             |
-| `/restaurant/menu/` | GET/POST Menu Items | ✅ Superuser   |
-| `/restaurant/book/` | GET/POST Bookings   | ✅ User        |
+# 🧪 API Endpoints
 
+| Endpoint            | Description         | Auth Required   |
+| ------------------- | ------------------- | --------------- |
+| `/restaurant/`      | Homepage (HTML)     | ❌               |
+| `/restaurant/menu/` | GET/POST menu items | ✅ Superuser     |
+| `/restaurant/book/` | GET/POST bookings   | ✅ Authenticated |
 
 ## 🧑‍💼 Permissions
-- Unauthenticated users can access the homepage.
-- Authenticated users can book tables.
-- Superusers can manage menu items and view all bookings.
+- Unauthenticated users: Can view the homepage.
+- Authenticated users: Can make bookings.
+- Superusers: Can manage menu items and view all bookings.
 
+# 🚀 Deployment
 
-## 🚀 Deployment
-App is deployed using Gunicorn on PythonAnywhere:
-🔗 ongunakay.pythonanywhere.com
+App is deployed on PythonAnywhere using Gunicorn.
 
-To redeploy after code updates:
+To redeploy after changes:
+Push updates to GitHub.
 
-Push changes to GitHub.
+SSH into PythonAnywhere and pull latest changes.
 
-Pull updates in your PythonAnywhere console.
+Restart the web app via the PythonAnywhere dashboard.
 
-Restart the web app from the PythonAnywhere dashboard.
-
-## 🗂️ Folder Structure
+# 🗂️ Project Structure
 ```
 /
-│
-├── authn/                # Custom auth views
-├── restaurant/           # Menu & booking logic
+├── authn/                # Custom authentication
+├── restaurant/           # Booking & menu logic
 ├── templates/            # HTML templates
-├── static/               # Static files
-├── manage.py             # Django manager
+├── static/               # Static assets
+├── staticfiles/          # Collected static files
+├── manage.py             # Django management script
 ├── Pipfile / Pipfile.lock
-├── .env                  # Environment variables (not committed)
+├── .env                  # Environment variables (not tracked)
 ├── requirements.txt
 └── README.md
 ```
 ## 👋 About Me
-
 Ongun Akay, a Senior Full-Stack Developer with expertise across various technologies.
 
-👀 I specialize in full-stack development with extensive experience in frontend and backend technologies.
-🌱 Currently, I'm sharpening my skills in advanced concepts of web development.
-💞️ I’m always open to exciting collaborations and projects that challenge my abilities.
-📫 You can reach me at info@ongunakay.com.
+👀 I specialize in full-stack development with extensive experience in frontend and backend technologies. 🌱 Currently, I'm sharpening my skills in advanced concepts of web development. 💞️ I’m always open to exciting collaborations and projects that challenge my abilities. 📫 You can reach me at info@ongunakay.com.
 
-🌐 Website: [ongunakay.com](https://ongunakay.com)<br>
-💼 LinkedIn: [linkedin.com/in/ongunakay](https://linkedin.com/in/ongunakay)<br>
-🧑‍💻 GitHub: [github.com/ongunakaycom](https://github.com/ongunakaycom)<br>
-📬 Email: [info@ongunakay.com](mailto:info@ongunakay.com)
+🌐 Website: ongunakay.com <br>
+💼 LinkedIn: linkedin.com/in/ongunakay<br>
+🧑‍💻 GitHub: github.com/ongunakaycom <br>
+📬 Email: info@ongunakay.com<br>
 
 ## 📝 License
 This is a personal project built using Django for learning and experimentation.
