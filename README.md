@@ -30,7 +30,7 @@ A Django-based restaurant booking and menu management system, deployed on [Pytho
 ### 1. Clone the repo
 
 ```
-git clone https://github.com/your-username/pythonanywhere-littlelemon.git
+git clone https://github.com/ongunakaycom/pythonanywhere-littlelemon.git
 cd pythonanywhere-littlelemon
 ```
 
