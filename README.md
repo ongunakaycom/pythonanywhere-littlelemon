@@ -1,4 +1,4 @@
-# 🍽️ Little Lemon Booking System
+# 🍽️ Restaurant Booking API – Django + Python + CI/CD
 
 ![Django](https://img.shields.io/badge/Django-092e20?style=flat&logo=django&logoColor=white)
 ![PythonAnywhere](https://img.shields.io/badge/Deployed%20on-PythonAnywhere-green?style=flat&logo=python)
