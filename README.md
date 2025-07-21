@@ -110,5 +110,6 @@ I'm Ongun Akay, a Senior Full-Stack Developer with expertise across various tech
 - 💞️ I’m always open to exciting collaborations and projects that challenge my abilities.
 - 📫 You can reach me at [info@ongunakay.com](mailto:info@ongunakay.com).
 
-## 📝 License
-This is a personal project built using Django for learning and experimentation.
+## 📄 License
+
+MIT License – See [`LICENSE`](./LICENSE)
